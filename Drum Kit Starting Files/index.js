@@ -11,6 +11,7 @@ var numberOfDrumButton = document.querySelectorAll(".drum").length ;
        var buttonInnerhtml = this.innerHTML ;
         
       makeSound(buttonInnerhtml) ;
+      animation(buttonInnerhtml);
 
 
     });
@@ -19,6 +20,7 @@ var numberOfDrumButton = document.querySelectorAll(".drum").length ;
     function(event){
 
         makeSound(event.key);
+        animation(event.key);
     }
  )
 
@@ -82,4 +84,20 @@ function makeSound(key) {
  }
    
     
+}
+
+
+function animation(currentKey) {
+
+   var activebutton = document.querySelector("."+currentKey)
+    
+   activebutton.classList.add("pressed");
+
+   setTimeout(function(){
+
+    activebutton.classList.remove("pressed");
+    
+   }, 50);
+
+   
 }
